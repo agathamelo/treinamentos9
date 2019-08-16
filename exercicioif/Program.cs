@@ -64,10 +64,21 @@ namespace exercicioif
                     {
                         Console.WriteLine("Digite seu nome: ");
                         var nome = Console.ReadLine();
+                        int idade = 0;
 
                         Console.WriteLine("Digite sua idade: ");
-                        var idade = Convert.ToInt32(Console.ReadLine());
 
+                        try
+                        {
+                            idade = Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch (Exception)
+                        {
+                            
+                            Console.WriteLine("Idade inválida");
+                            break;
+                        }
+                        
                         var pessoa = new Pessoa();
                         pessoa.nome = nome;
                         pessoa.idade = idade;
@@ -75,7 +86,7 @@ namespace exercicioif
                         cadastro.Add(pessoa);
 
                         //lista
-                        Console.WriteLine("==============Nova Lista=============");
+                        Console.WriteLine("=================Lista================");
                         foreach (var i in cadastro)
                         {
                             Console.WriteLine("Nome: " + i.nome + " /Idade: " + i.idade);
@@ -96,22 +107,38 @@ namespace exercicioif
                 if (resposta == "2")
                 {
                     //lista atualizada
-                    Console.WriteLine("==============Nova Lista=============");
+                    Console.WriteLine("=================Lista================");
+
+                    var i = 0;
                     foreach (var a in cadastro)
                     {
-                        Console.WriteLine("Nome: " + a.nome + " /Idade: " + a.idade);
-
+                        Console.WriteLine(i + ") Nome: " + a.nome + " /Idade: " + a.idade);
+                        i++;
                     }
+
                     Console.WriteLine("======================================");
 
                     Console.WriteLine("Qual pessoa deseja remover: ");
                     var remover = Convert.ToInt32(Console.ReadLine());
 
-                    
+
+                    cadastro.RemoveAt(remover);
+
+                    Console.WriteLine("==============Nova Lista=============");
+                    foreach (var b in cadastro)
+                    {
+                        Console.WriteLine("Nome: " + b.nome + " /Idade: " + b.idade);
+                    }
+                    Console.WriteLine("======================================");
                 }
 
                 if (resposta == "3")
                 {
+                    Console.WriteLine("Digite o nome que deseja pesquisar: ");
+                    var pesquisando = Console.ReadLine();
+
+                    var retorna = cadastro.Where(x => x.nome == pesquisando);
+                    Console.WriteLine(retorna.Count());
 
                 }
                 Console.WriteLine("Volta para opções: s/n");
