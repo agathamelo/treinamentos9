@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace exercicioif
 {
+    //Crie uma classe que se chama Pessoa e que contenha os atributos "nome" e "idade"
     public class Pessoa
     {
         public string nome;
         public int idade;
         public string email;
 
-
+        //Implemente um método que receba nome e idade e devolva Pessoa
         public static Pessoa Identificacao(string nome, int idade)
         {
             var pessoa = new Pessoa();

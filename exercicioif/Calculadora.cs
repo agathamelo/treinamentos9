@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace exercicioif
 {
-    class Calculadora
+    /*Cria uma classe que se chama Calculadora e que contenha as funções Somar, Subtrair, Dividir e Multiplicar 
+      e utiliza em uma calculadora funcional feita com WHILE, dada nos exercícios anteriores.*/
+    public class Calculadora
     {
        // //propriedades
        // public int num1;
