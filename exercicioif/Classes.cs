@@ -142,42 +142,94 @@ namespace exercicioif
         static void Main(string[] args)
         {
             Classes.Exercicio1();
+            Console.ReadLine();
         }
 
         2)
         static void Main(string[] args)
         {
-            Classes.Exercicio1();
+             var minhalista = new List<Pessoa>();
+
+        var c1 = new Pessoa() { nome = "Agatha", idade = 24 };
+        minhalista.Add(c1);
+        var c2 = new Pessoa() { nome = "Tania", idade = 56 };
+        minhalista.Add(c2);
+        var c3 = new Pessoa() { nome = "Safira", idade = 9 };
+        minhalista.Add(c3);
+
+        Classes.ExecutaExercicio2(minhalista);
+        Console.ReadLine();
         }
 
         3)
         static void Main(string[] args)
         {
-            Classes.Exercicio1();
+             var minhalista = new List<Pessoa>();
+
+        var c1 = new Pessoa() { nome = "Agatha", idade = 24 };
+        minhalista.Add(c1);
+        var c2 = new Pessoa() { nome = "Tania", idade = 56 };
+        minhalista.Add(c2);
+        var c3 = new Pessoa() { nome = "Safira", idade = 9 };
+        minhalista.Add(c3);
+
+        Classes.ExecutaExercicio3(minhalista);
+        Console.ReadLine();
         }
 
         4)
         static void Main(string[] args)
         {
-            Classes.Exercicio1();
+             var minhalista = new List<Pessoa>();
+
+        var c1 = new Pessoa() { nome = "Agatha", idade = 24 };
+        minhalista.Add(c1);
+        var c2 = new Pessoa() { nome = "Tania", idade = 56 };
+        minhalista.Add(c2);
+        var c3 = new Pessoa() { nome = "Safira", idade = 9 };
+        minhalista.Add(c3);
+
+        Classes.ExecutaExercicio4(minhalista);
+        Console.ReadLine();
         }
 
         5)
         static void Main(string[] args)
         {
-            Classes.Exercicio1();
+             var minhalista = new List<Pessoa>();
+
+        var c1 = new Pessoa() { nome = "Agatha", idade = 24 };
+        minhalista.Add(c1);
+        var c2 = new Pessoa() { nome = "Tania", idade = 56 };
+        minhalista.Add(c2);
+        var c3 = new Pessoa() { nome = "Safira", idade = 9 };
+        minhalista.Add(c3);
+
+        Classes.ExecutaExercicio5(minhalista);
+        Console.ReadLine();
         }
 
         6)
         static void Main(string[] args)
         {
-            Classes.Exercicio1();
+            var minhalista = new List<Pessoa>();
+
+        var c1 = new Pessoa() { nome = "Agatha", idade = 24 };
+        minhalista.Add(c1);
+        var c2 = new Pessoa() { nome = "Tania", idade = 56 };
+        minhalista.Add(c2);
+        var c3 = new Pessoa() { nome = "Safira", idade = 9 };
+        minhalista.Add(c3);
+
+        Classes.ExecutaExercicio6(minhalista);
+        Console.ReadLine();
         }
 
         7)
         static void Main(string[] args)
         {
             Classes.Exercicio7();
+            Console.ReadLine();
         }
          */
     }

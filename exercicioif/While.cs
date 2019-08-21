@@ -66,6 +66,7 @@ namespace exercicioif
         static void Main(string[] args)
         {
             While.Exercicio1();
+            Console.ReadLine();
         }
 
          */

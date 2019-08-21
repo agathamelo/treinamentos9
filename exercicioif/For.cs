@@ -155,6 +155,7 @@ namespace exercicioif
         static void Main(string[] args)
         {
             For.Exercicio1();
+            Console.ReadLine();
         }
 
          */
