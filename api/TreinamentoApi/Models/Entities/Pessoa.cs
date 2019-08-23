@@ -11,14 +11,18 @@ namespace TreinamentoApi.Models.Entities
         public string Nome;
         public string Telefone;
         public string Email;
-        public enum TipoConta
-        {
-            PessoaFisica =1,
-            PessoaJuridica
-        }
+        public EnumTipoConta TipoConta;
+       
         public Conta Conta;
         
         public PessoaFisica PessoaFisica;
         public PessoaJuridica PessoaJuridica;
+        
+    }
+
+    public enum EnumTipoConta
+    {
+        PessoaFisica = 1,
+        PessoaJuridica
     }
 }
