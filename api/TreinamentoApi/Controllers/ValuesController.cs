@@ -13,8 +13,8 @@ namespace TreinamentoApi.Controllers
         public List<Pessoa> lista = new List<Pessoa>();
 
         public ValuesController()
-
-        {
+      
+        {          
             var pessoa1 = new Pessoa();
             pessoa1.TipoConta = EnumTipoConta.PessoaFisica;
             pessoa1.Id = 1;
@@ -23,7 +23,9 @@ namespace TreinamentoApi.Controllers
             pessoa1.Email = "tamabra16@gmail.com";
 
             var PessoaTipoFisica = new PessoaFisica();
+
             PessoaTipoFisica.Cpf = "09110012800";
+
             PessoaTipoFisica.Idade = 56;
             pessoa1.PessoaFisica = PessoaTipoFisica;
 
@@ -87,7 +89,7 @@ namespace TreinamentoApi.Controllers
         //Buscando a lista de pessoas fisicas e juridicas
         [HttpGet("pessoas")]
         public ActionResult<List<Pessoa>> Get()
-        {
+        {            
             return lista;
         }
 
@@ -126,17 +128,17 @@ namespace TreinamentoApi.Controllers
 
 
         //Buscando pessoa pelo cpf ou cnpj
-        [HttpGet ("pessoas/{codigo}")]
-        public ActionResult<Pessoa> GetByCodigo(string codigo)
-        {
-            var pessoa = lista.Where(x => x.PessoaFisica != null && x.PessoaFisica.Cpf == codigo
-                                    || x.PessoaJuridica != null && x.PessoaJuridica.Cnpj == codigo)
-                                    .FirstOrDefault();
-            if (pessoa == null)
-                return BadRequest();
+        //[HttpGet ("pessoas/{codigo}")]
+        //public ActionResult<Pessoa> GetByCodigo(string codigo)
+        //{
+        //    var pessoa = lista.Where(x => x.PessoaFisica != null && x.PessoaFisica.Cpf == codigo
+        //                            || x.PessoaJuridica != null && x.PessoaJuridica.Cnpj == codigo)
+        //                            .FirstOrDefault();
+        //    if (pessoa == null)
+        //        return BadRequest();
 
-            return Ok(pessoa);
-        }
+        //    return Ok(pessoa);
+        //}
 
 
         //Enviando dados de uma pessoa
@@ -176,6 +178,7 @@ namespace TreinamentoApi.Controllers
             lista.Add(pessoa);
 
             return Ok(pessoa);
+
 
         }
     }
