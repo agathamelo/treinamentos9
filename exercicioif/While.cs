@@ -8,7 +8,8 @@ namespace exercicioif
 {
     static public class While
     {
-        static public void While1()
+        //1)Preencha uma lista com 10 strings e depois apresente os utilizando WHILE
+        static public void Exercicio1()
         {
             var num = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j" };
             var x = 0;
@@ -19,7 +20,8 @@ namespace exercicioif
                 x++;
             }
         }
-        static public void While2()
+        //2)Faça uma calculadora com SOMA e SUBTRAÇÃO que não necessite ficar executando o programa para refazer o processo.
+        static public void Exercicio2()
         {
             Console.WriteLine("Faça uma soma ou subtração");
 
@@ -58,7 +60,15 @@ namespace exercicioif
                     break;
                 }
             }
-
         }
+        /*Para executar os exercicios no program.cs, deve-se:
+         
+        static void Main(string[] args)
+        {
+            While.Exercicio1();
+            Console.ReadLine();
+        }
+
+         */
     }
 }

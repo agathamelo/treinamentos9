@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Avancados.cs" />
+    <Compile Include="Cadastro.cs" />
     <Compile Include="Calculadora.cs" />
     <Compile Include="Classes.cs" />
+    <Compile Include="Enumeracao.cs" />
     <Compile Include="For.cs" />
     <Compile Include="Foreach.cs" />
     <Compile Include="Funcao.cs" />

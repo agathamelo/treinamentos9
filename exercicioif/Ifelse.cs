@@ -8,6 +8,7 @@ namespace exercicioif
 {
     public static class Ifelse
     {
+        //1)Teste duas variáveis inteiras e retorne qual é a maior
         static public void Exercicio1()
         {
             int num1 = 1;
@@ -22,6 +23,7 @@ namespace exercicioif
                 Console.WriteLine("num2 é maior que num1");
             }
         }
+        //2)Teste duas variáveis inteiras e retorne qual é a menor
         static public void Exercicio2()
         {
             int num1 = 10;
@@ -36,6 +38,7 @@ namespace exercicioif
                 Console.WriteLine("num1 é maior que num2");
             }
         }
+        //3)Teste um float e um decimal e retorne qual é o maior
         static public void Exercicio3()
         {
             float num1 = 2.5f;
@@ -47,6 +50,7 @@ namespace exercicioif
 
             }
         }
+        //4)Teste um float e um decimal e retorne qual é o maior
         static public void Exercicio4()
         {
             string nome1 = "agatha";
@@ -54,8 +58,6 @@ namespace exercicioif
             string nome3 = "agatha";
             string nome4 = "agatha";
 
-
-            //F T
             if (nome1 == nome2 && nome1 == nome3 && nome1 == nome4 && nome2 == nome3 && nome2 == nome4 && nome3 == nome4)
             {
                 Console.WriteLine("Os nomes são iguais.");
@@ -65,6 +67,7 @@ namespace exercicioif
                 Console.WriteLine("Os nomes são diferentes.");
             }
         }
+        //5)	Verifique as string "Teste" e "teste" e verifique se eles são iguais
         static public void Exercicio5()
         {
             string nome1 = "teste";
@@ -75,6 +78,7 @@ namespace exercicioif
                 Console.WriteLine("Os nomes são diferentes.");
             }
         }
+        //6)Verifique uma única variável bool
         static public void Exercicio6()
         {
             bool condicao = true;
@@ -88,6 +92,7 @@ namespace exercicioif
                 Console.WriteLine("A condição é falsa");
             }
         }
+        //7)Verifique 4 números e retorne o maior
         static public void Exercicio7()
         {
             int num1 = 1;
@@ -116,6 +121,7 @@ namespace exercicioif
                 Console.WriteLine("os valores são iguais.");
             }
         }
+        //8)Teste 3 variáveis inteiras e retorne qual é a maior, se não tiver maior retorne que a operação é inválida
         static public void Exercicio8()
         {
             int valor1 = 15;
@@ -143,5 +149,14 @@ namespace exercicioif
                 Console.WriteLine("Erro");
             }
         }
+        /* Para Executar os exercicios no program.cs deve:
+         
+           static void Main(string[] args)
+        {
+            Ifelse.Exercicio1();
+            Console.ReadLine();
+        }
+
+         */
     }
 }

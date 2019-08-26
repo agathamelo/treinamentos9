@@ -8,67 +8,32 @@ namespace exercicioif
 {
     static public class For
     {
-        static public void For0()
+        //1)Liste todos os itens de uma lista
+        static public void Exercicio1()
         {
-            // ARRAY ---> obs: nas coleções, o índice começa do 0 <---
+            var valores = new List<int> { 1, 12, 23, 34, 45 };
 
-            //int[] valores;
-
-            //valores = new int[5];
-
-            //valores[0] = 1;
-            //valores[1] = 12;
-            //valores[2] = 23;
-            //valores[3] = 34;
-            //valores[4] = 45;
-            // ou
-            /*nt[] valores = new int[] { 1, 12, 23, 34, 45 };*/
-            //var valores = new List<int> { 10, 20, 30 };
-            ////For - ciclo de repetição PARA
-
-
-            //valores.Add(21);
-            ////valores.Clear();
-
-            //valores.OrderBy(x => x);
-
-            //var t = valores.OrderByDescending(x => x);            
-
-            //// 1
-            //// 12
-            //// 23
-            //// 34
-            //// 45
-            //// 
-            //for (int valor = 0; valor < valores.Count() ; valor++)
-            //{
-            //    Console.WriteLine(valores[valor]);
-            //}
-        }
-        static public void For1()
-        {
-            var idade = new List<int> { 10, 20, 30 };
-
-            for (int indice = 0; indice < 4; indice++)
+            for (int valor = 0; valor < valores.Count(); valor++)
             {
-                Console.WriteLine(idade[indice]);
+                Console.WriteLine(valores[valor]);
             }
-
-
         }
-        static public void For2()
+        //2)Mostre o primeiro elemento da lista usando indexador
+        static public void Exercicio2()
         {
             var nomes = new List<string> { "Agatha", "Alberto", "Bueno", "Pedro" };
 
             Console.WriteLine(nomes[0]);
         }
-        static public void For3()
+        //3)Mostre o último item da lista
+        static public void Exercicio3()
         {
             var pagamento = new List<double> { 123.66, 552.65, 954.65, 1005.95 };
 
             Console.WriteLine(pagamento.LastOrDefault());
         }
-        static public void For4()
+        //4)Apresente todos os itens de uma lista de baixo pra cima
+        static public void Exercicio4()
         {
             var idade = new List<int> { 80, 20, 30 };
 
@@ -76,11 +41,11 @@ namespace exercicioif
 
             for (var i = x; i >= 0; i = i - 1)
             {
-                //Console.WriteLine(i);
                 Console.WriteLine(idade[i]);
             }
         }
-        static public void For5()
+        //5)Adicione os números de 1 a 10 na lista utilizando FOR
+        static public void Exercicio5()
         {
 
             var num = new List<int> { };
@@ -95,6 +60,7 @@ namespace exercicioif
                 Console.WriteLine(i);
             }
         }
+        //6)Apresente para cada número da lista se o número é PAR ou IMPAR
         static public void For6()
         {
             var valor = new List<int> { 1, 2, 3, 4 };
@@ -113,7 +79,8 @@ namespace exercicioif
                 }
             }
         }
-        static public void For7()
+        //7)Apresente para cada número da lista se ele é PRIMO
+        static public void Exercicio7()
         {
             var valor = new List<int> { 1, 2, 3, 4 };
 
@@ -132,7 +99,31 @@ namespace exercicioif
                 }
             }
         }
-        static public void For8()
+        //8)Fazer uma tabuada utilizando FOR
+        static public void Exercicio8()
+        {
+            //ixj
+            //1X1=1
+            //1X2=2
+            //1X3=3
+            //1X4=4
+            //1X5=5
+            //1X6=6
+            //1X7=7
+            //1X8=8
+            //1X9=9
+            //1X10=10
+
+            for (var i = 1; i <= 10; i++)
+            {
+                for (var j = 0; j <= 10; j++)
+                {
+                    Console.WriteLine(i + "x" + j + "=" + (i * j));
+                }
+            }
+        }
+        //9)Crie uma lista que adicione nomes nela
+        static public void Exercicio9()
         {
             var nomes = new List<string> { };
 
@@ -158,29 +149,15 @@ namespace exercicioif
                     break;
                 }
             }
-
         }
-        static public void For9()
+        /*Para executar os exercicios no program.cs, deve-se:
+         
+        static void Main(string[] args)
         {
-            //ixj
-            //1X1=1
-            //1X2=2
-            //1X3=3
-            //1X4=4
-            //1X5=5
-            //1X6=6
-            //1X7=7
-            //1X8=8
-            //1X9=9
-            //1X10=10
-
-            for (var i = 1; i <= 10; i++)
-            {
-                for (var j = 0; j <= 10; j++)
-                {
-                    Console.WriteLine(i + "x" + j + "=" + (i * j));
-                }
-            }
+            For.Exercicio1();
+            Console.ReadLine();
         }
+
+         */
     }
 }

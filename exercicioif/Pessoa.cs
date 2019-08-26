@@ -6,24 +6,36 @@ using System.Threading.Tasks;
 
 namespace exercicioif
 {
+    //1)Crie uma classe que se chama Pessoa e que contenha os atributos "nome" e "idade"
     public class Pessoa
     {
         public string nome;
         public int idade;
         public string email;
 
-
+        //2)Implemente um método que receba nome e idade e devolva Pessoa
         public static Pessoa Identificacao(string nome, int idade)
         {
             var pessoa = new Pessoa();
-            //pessoa.nome = nome;
+            pessoa.nome = nome;
             pessoa.idade = idade;
 
             return pessoa;
         }
     }
-    
+    /*Para executar o exercicio no program.cs:
+     
+    2)
+            var resultado = Pessoa.Identificacao("Agatha", 24);
+            Console.WriteLine(resultado.idade);
+            Console.WriteLine(resultado.nome);
+
+            Console.ReadLine();
+     */
+
 }
+
+
 ////definição das propriedades da pessoa - suas caracteristicas
 
 //public string nome;

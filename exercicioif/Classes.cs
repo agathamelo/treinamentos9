@@ -10,33 +10,94 @@ namespace exercicioif
     {
         public static string comprimento = "Eai mano.";
 
-        static public void Classe1()
+        //1)Crie uma lista do tipo Pessoa e preencha essa lista manualmente com 10 pessoas (tipo pessoa com dados completos)
+        static public void Exercicio1()
         {
-            //string nome = "alberto";
+            var lista = new List<Pessoa>();
 
-            //// criando uma variavel do tipo pessoa - criando um objeto p1 apartir da classe pessoa (instancia)
-            //Pessoa p1 = new Pessoa();
-            //p1.nome = "Agatha";
-            //p1.idade = 24;
-            //p1.cor_cabelo = "loiro";
+            var p1 = new Pessoa() { nome = "Agatha", idade = 24 };
+            lista.Add(p1);
+            var p2 = new Pessoa() { nome = "Alberto", idade = 23 };
+            lista.Add(p2);
+            var p3 = new Pessoa() { nome = "Kathlen", idade = 21 };
+            lista.Add(p3);
+            var p4 = new Pessoa() { nome = "Richard", idade = 15 };
+            lista.Add(p4);
+            var p5 = new Pessoa() { nome = "Tania", idade = 56 };
+            lista.Add(p5);
+            var p6 = new Pessoa() { nome = "Cassia", idade = 39 };
+            lista.Add(p6);
+            var p7 = new Pessoa() { nome = "Lamartine", idade = 37 };
+            lista.Add(p7);
+            var p8 = new Pessoa() { nome = "Henrique", idade = 34 };
+            lista.Add(p8);
+            var p9 = new Pessoa() { nome = "Marcos", idade = 49 };
+            lista.Add(p9);
+            var p10 = new Pessoa() { nome = "Safira", idade = 9 };
+            lista.Add(p10);
 
-            ////criando uma nova pessoa
-            //Pessoa p2 = new Pessoa();
-            //p2.nome = "Alberto";
-            //p2.idade = 23;
-            //p2.cor_cabelo = "castanho";
-
-            //---------------------------------------------------------------
-
-            //Console.WriteLine(p1.nome);
-
-            // executando as funcionalidades 
-            //p2.Falar();
-            //p2.Apresentar_se();
-            //p2.Apresenta();
+            foreach(var i in lista)
+            {
+                Console.WriteLine(i.nome);
+                Console.WriteLine(i.idade);
+            }
         }
+        //2)Procure a pessoa "Alberto" em uma lista com 5 pessoas e devolva true ou false se encontrou ou não.
+        public static bool ExecutaExercicio2(List<Pessoa> minhalista)
+        {
+            foreach (var i in minhalista)
+            {
+                if (i.nome == "Alberto")
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        //3)Construa uma função que receba uma lista de pessoas e devolva uma lista de pessoas em orderalfabética
+        public static void ExecutaExercicio3(List<Pessoa> minhalista)
+        {
+            var novalista = minhalista.OrderBy(x => x.nome);
 
-        static public void Classe2()
+            foreach (var i in novalista)
+            {
+                Console.WriteLine(i.nome);
+            }
+        }
+        //4)Construa uma função que receba uma lista de pessoa e devolva as pessoas que possuem mais de 40 anos.
+        public static void ExecutaExercicio4(List<Pessoa> s)
+        {
+            foreach (var i in s)
+            {
+                if (i.idade >= 40)
+                {
+                    Console.WriteLine(i.nome);
+                }
+            }
+        }
+        //5)Construa uma função que receba uma lista de pessoa e devolva os nomes que comecem com a letra A
+        public static void ExecutaExercicio5(List<Pessoa> minhalista)
+        {
+            foreach (var i in minhalista)
+            {
+                if (i.nome[0].ToString() == "A")
+                {
+                    Console.WriteLine(i.nome);
+                }
+            }
+        }
+        //6)Construa uma função que receba uma lista de pessoa e devolva a lista em ordem descrecente de nome
+        public static void ExecutaExercicio6(List<Pessoa> minhalista)
+        {
+            var outralista = minhalista.OrderByDescending(x => x.nome);
+
+            foreach (var i in outralista)
+            {
+                Console.WriteLine(i.nome);
+            }
+        }
+        //7)Crie uma calculadora funcional feita com WHILE
+        static public void Exercicio7()
         {
             Calculadora operacoes = new Calculadora();
 
@@ -75,119 +136,101 @@ namespace exercicioif
                 }
             }
         }
-
-        public static void ExercicioLista()
+        /*Para executar os exercicios:
+         
+        1)
+        static void Main(string[] args)
         {
-            var lista = new List<Pessoa>();
-
-            var p1 = new Pessoa() { nome = "Agatha", idade = 24 };
-            lista.Add(p1);
-            var p2 = new Pessoa() { nome = "Alberto", idade = 23 };
-            lista.Add(p2);
-            var p3 = new Pessoa() { nome = "Kathlen", idade = 21 };
-            lista.Add(p3);
-            var p4 = new Pessoa() { nome = "Richard", idade = 15 };
-            lista.Add(p4);
-            var p5 = new Pessoa() { nome = "Tania", idade = 56 };
-            lista.Add(p5);
-            var p6 = new Pessoa() { nome = "Cassia", idade = 39 };
-            lista.Add(p6);
-            var p7 = new Pessoa() { nome = "Lamartine", idade = 37 };
-            lista.Add(p7);
-            var p8 = new Pessoa() { nome = "Henrique", idade = 34 };
-            lista.Add(p8);
-            var p9 = new Pessoa() { nome = "Marcos", idade = 49 };
-            lista.Add(p9);
-            var p10 = new Pessoa() { nome = "Safira", idade = 9 };
-            lista.Add(p10);
+            Classes.Exercicio1();
+            Console.ReadLine();
         }
 
-        public static void ExecutaExercicio1(List<Pessoa> s)
+        2)
+        static void Main(string[] args)
         {
-            foreach (var i in s)
-            {
-                if (i.idade >= 40)
-                {
-                    Console.WriteLine(i.nome);
-                }
-            }
+             var minhalista = new List<Pessoa>();
+
+        var c1 = new Pessoa() { nome = "Agatha", idade = 24 };
+        minhalista.Add(c1);
+        var c2 = new Pessoa() { nome = "Tania", idade = 56 };
+        minhalista.Add(c2);
+        var c3 = new Pessoa() { nome = "Safira", idade = 9 };
+        minhalista.Add(c3);
+
+        Classes.ExecutaExercicio2(minhalista);
+        Console.ReadLine();
         }
-        public static void ExecutaExercicio2(List<Pessoa> minhalista)
+
+        3)
+        static void Main(string[] args)
         {
-            foreach (var i in minhalista)
-            {
-                if (i.nome[0].ToString() == "A")
-                {
-                    Console.WriteLine(i.nome);
-                }
-            }
+             var minhalista = new List<Pessoa>();
+
+        var c1 = new Pessoa() { nome = "Agatha", idade = 24 };
+        minhalista.Add(c1);
+        var c2 = new Pessoa() { nome = "Tania", idade = 56 };
+        minhalista.Add(c2);
+        var c3 = new Pessoa() { nome = "Safira", idade = 9 };
+        minhalista.Add(c3);
+
+        Classes.ExecutaExercicio3(minhalista);
+        Console.ReadLine();
         }
-        public static void ExecutaExercicio3(List<Pessoa> minhalista)
+
+        4)
+        static void Main(string[] args)
         {
-            var novalista = minhalista.OrderBy(x => x.nome);
+             var minhalista = new List<Pessoa>();
 
-            foreach (var i in novalista)
-            {
-                Console.WriteLine(i.nome);
-            }
+        var c1 = new Pessoa() { nome = "Agatha", idade = 24 };
+        minhalista.Add(c1);
+        var c2 = new Pessoa() { nome = "Tania", idade = 56 };
+        minhalista.Add(c2);
+        var c3 = new Pessoa() { nome = "Safira", idade = 9 };
+        minhalista.Add(c3);
+
+        Classes.ExecutaExercicio4(minhalista);
+        Console.ReadLine();
         }
-        public static void ExecutaExercicio4(List<Pessoa> minhalista)
+
+        5)
+        static void Main(string[] args)
         {
-            var outralista = minhalista.OrderByDescending(x => x.nome);
+             var minhalista = new List<Pessoa>();
 
-            foreach (var i in outralista)
-            {
-                Console.WriteLine(i.nome);
-            }
+        var c1 = new Pessoa() { nome = "Agatha", idade = 24 };
+        minhalista.Add(c1);
+        var c2 = new Pessoa() { nome = "Tania", idade = 56 };
+        minhalista.Add(c2);
+        var c3 = new Pessoa() { nome = "Safira", idade = 9 };
+        minhalista.Add(c3);
+
+        Classes.ExecutaExercicio5(minhalista);
+        Console.ReadLine();
         }
-        public static bool ExecutaExercicio5(List<Pessoa> minhalista)
+
+        6)
+        static void Main(string[] args)
         {
-            foreach (var i in minhalista)
-            {
-                //Console.WriteLine(i.nome);
-                if (i.nome == "Agatha")
-                {
-                    return true;
-                }
-            }
-            return false;
+            var minhalista = new List<Pessoa>();
+
+        var c1 = new Pessoa() { nome = "Agatha", idade = 24 };
+        minhalista.Add(c1);
+        var c2 = new Pessoa() { nome = "Tania", idade = 56 };
+        minhalista.Add(c2);
+        var c3 = new Pessoa() { nome = "Safira", idade = 9 };
+        minhalista.Add(c3);
+
+        Classes.ExecutaExercicio6(minhalista);
+        Console.ReadLine();
         }
-        public static void ExercicioCadastrar()
+
+        7)
+        static void Main(string[] args)
         {
-            var lista = new List<Pessoa>();
-
-            while (true)
-            {
-                Console.WriteLine("Digite seu nome: ");
-                var nome = Console.ReadLine();
-
-                Console.WriteLine("Digite sua idade: ");
-                var idade = Convert.ToInt32(Console.ReadLine());
-
-                var pessoa = new Pessoa();
-                pessoa.nome = nome;
-                pessoa.idade = idade;
-
-                lista.Add(pessoa);
-
-                //lista
-                foreach (var i in lista)
-                {
-                    Console.WriteLine(i.nome);
-                    Console.WriteLine(i.idade);
-                }
-
-                Console.WriteLine("Deseja adicionar nova pessoa?:  s/n");
-                var resposta = Console.ReadLine();
-
-                Console.WriteLine(pessoa.nome);
-                Console.WriteLine(pessoa.idade);
-
-                if (resposta == "n")
-                {
-                    break;
-                }
-            }
+            Classes.Exercicio7();
+            Console.ReadLine();
         }
+         */
     }
 }
