@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TreinamentoApi.Helpers.DataTransferObject;
 using TreinamentoApi.Models.Entities;
 
 namespace TreinamentoApi.Controllers
@@ -78,6 +79,7 @@ namespace TreinamentoApi.Controllers
             var pessoa5 = new Pessoa();
             pessoa5.TipoConta = EnumTipoConta.PessoaFisica;
             pessoa5.Nome = "kathlen";
+            pessoa5.Id = 5;
 
             var PessoaFisica3 = new PessoaFisica();
             PessoaFisica3.Cpf = "42229266802";
@@ -87,11 +89,11 @@ namespace TreinamentoApi.Controllers
         }
 
         //Buscando a lista de pessoas fisicas e juridicas
-        [HttpGet("pessoas")]
-        public ActionResult<List<Pessoa>> Get()
-        {            
-            return lista;
-        }
+        //[HttpGet("pessoas")]
+        //public ActionResult<List<Pessoa>> Get()
+        //{            
+        //    return lista;
+        //}
 
 
 
@@ -154,32 +156,133 @@ namespace TreinamentoApi.Controllers
 
 
         //Verificando se dados enviados ja possuem cadastro
-        [HttpPost]
-        [Route("pessoas")]
-        public ActionResult Verificando(Pessoa pessoa)
+        //[HttpPost]
+        //[Route("pessoas")]
+        //public ActionResult Verificando(Pessoa pessoa)
+        //{
+        //    var codigo = "";
+
+        //    if (pessoa.PessoaFisica != null)
+        //    {
+        //        codigo = pessoa.PessoaFisica.Cpf;
+        //    }
+        //    if (pessoa.PessoaJuridica != null)
+        //    {
+        //        codigo = pessoa.PessoaJuridica.Cnpj;
+        //    }
+
+        //    var pesquisando = lista.Where(x => x.PessoaFisica != null && x.PessoaFisica.Cpf == codigo
+        //                            || x.PessoaJuridica != null && x.PessoaJuridica.Cnpj == codigo)
+        //                            .FirstOrDefault();
+        //    if (pesquisando != null)
+        //        return BadRequest();
+
+        //    lista.Add(pessoa);
+
+        //    return Ok(pessoa);
+
+        //}
+
+        //ou
+
+        //[HttpPost]
+        //[Route("pessoas")]
+        //public ActionResult Verificar (Pessoa pessoa)
+        //{
+
+        //    var codigo = pessoa.PessoaFisica != null ? pessoa.PessoaFisica.Cpf : pessoa.PessoaJuridica.Cnpj;
+
+        //    var pesquisa = lista.Where(x => x.PessoaFisica != null && x.PessoaFisica.Cpf == codigo 
+        //                            || x.PessoaJuridica != null && x.PessoaJuridica.Cnpj == codigo)
+        //                            .FirstOrDefault();
+        //    if (pesquisa != null)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    lista.Add(pessoa);
+        //    return Ok(pessoa);
+        //}
+
+
+
+        //Devolver uma lista de pessoas que o nome possua a letra com A
+        //[HttpGet]
+        //[Route("pessoas/{termo}")]
+        //public ActionResult<List<Pessoa>> RetornaLetra (string termo )
+        //{
+        //    //Contains - determina se um elemento existe na lista 
+        //    var pesquisando = lista.Where(x => x.Nome.Contains(termo));
+
+        //    return Ok(pesquisando);
+        //}
+
+
+        //Devolver lista com nome e id de pessoa
+        //[HttpGet]
+        //[Route ("pessoas/{termo}")]
+        //public ActionResult<List<object>> RetornaNomeEId (string termo)
+        //{
+        //    var pesquisando = lista.Where(x => x.Nome.Contains(termo));
+
+        //    //Select - Projeta cada elemento de uma sequência em um novo formulário.
+        //    var retorno = pesquisando.Select(x => new { nome = x.Nome, id = x.Id });
+        //    return Ok(retorno);
+        //}
+
+
+
+        //Devolver lista de pessoas ordenadas pelo id de maneira descendente 
+        //[HttpGet]
+        //[Route ("pessoas/{termo}")]
+        //public ActionResult<List<object>> DevolveId (string termo)
+        //{
+        //    var pesquisando = lista.Where(x => x.Nome.Contains(termo));
+
+        //    var retorno = pesquisando.Select(x => new { nome = x.Nome, id = x.Id });
+
+        //    return Ok(retorno.OrderByDescending(x=>x.id));
+        //}
+
+
+
+        //[HttpGet]
+        //[Route("pessoas/{termo}")]
+        //public ActionResult<List<object>> DevolveId(string termo)
+        //{
+        //    var pesquisando = lista.Where(x => x.Nome.Contains(termo));
+
+        //    var retorno = pesquisando.Select(x => new PessoaDto(x));
+
+        //    return Ok(retorno.OrderByDescending(x => x.id));
+        //}
+
+
+
+        //Adicionando uma nova pessoa na lista e retornando lista de PessoaDto
+        //[HttpPost]
+        //[Route("pessoas")]
+        //public ActionResult Cadastrar (Pessoa novapessoa)
+        //{
+        //    lista.Add(novapessoa);
+
+
+        //    return Ok(new PessoaDto(novapessoa));
+        //}
+
+
+
+        //Deletando uma pessoa da lista pelo id
+        [HttpDelete]
+        [Route("pessoas/{id:long}")]
+        public ActionResult<List<Pessoa>> DeletePessoa(long id)
         {
-            var codigo = "";
+            var pesquisando = lista.Where(x => x.Id == id).FirstOrDefault();
+           
+            var indexador = lista.IndexOf(pesquisando);
+            lista.RemoveAt(indexador);
 
-            if (pessoa.PessoaFisica != null)
-            {
-                codigo = pessoa.PessoaFisica.Cpf;
-            }
-            if (pessoa.PessoaJuridica != null)
-            {
-                codigo = pessoa.PessoaJuridica.Cnpj;
-            }
-
-            var pesquisando = lista.Where(x => x.PessoaFisica != null && x.PessoaFisica.Cpf == codigo
-                                    || x.PessoaJuridica != null && x.PessoaJuridica.Cnpj == codigo)
-                                    .FirstOrDefault();
-            if (pesquisando != null)
-                return BadRequest();
-
-            lista.Add(pessoa);
-
-            return Ok(pessoa);
-
-
+            return lista;
         }
     }
 }
