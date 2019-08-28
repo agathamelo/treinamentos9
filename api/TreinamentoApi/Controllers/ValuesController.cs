@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TreinamentoApi.Helpers.DataTransferObject;
+using TreinamentoApi.Helpers.Posts;
 using TreinamentoApi.Models.Entities;
 
 namespace TreinamentoApi.Controllers
@@ -30,6 +31,10 @@ namespace TreinamentoApi.Controllers
             PessoaTipoFisica.Idade = 56;
             pessoa1.PessoaFisica = PessoaTipoFisica;
 
+            var SaldoDisponivel = new Conta();
+            SaldoDisponivel.Saldo = 1000.00m;
+            pessoa1.Conta = SaldoDisponivel;
+
             lista.Add(pessoa1);
 
             var pessoa2 = new Pessoa { };
@@ -43,6 +48,10 @@ namespace TreinamentoApi.Controllers
             PessoaTipoFisica2.Cpf = "42229265822";
             PessoaTipoFisica2.Idade = 24;
             pessoa2.PessoaFisica = PessoaTipoFisica2;
+
+            var SaldoDisponivel2 = new Conta();
+            SaldoDisponivel2.Saldo = 1000.00m;
+            pessoa2.Conta = SaldoDisponivel2;
 
 
             lista.Add(pessoa2);
@@ -60,6 +69,10 @@ namespace TreinamentoApi.Controllers
 
             pessoa3.PessoaJuridica = PessoaTipoJuridica1;
 
+            var SaldoDisponivel3 = new Conta();
+            SaldoDisponivel3.Saldo = 1000.00m;
+            pessoa3.Conta = SaldoDisponivel3;
+
             lista.Add(pessoa3);
 
             var pessoa4 = new Pessoa { };
@@ -74,6 +87,11 @@ namespace TreinamentoApi.Controllers
             PessoaTipoJuridica2.RazaoSocial = "Catáloko";
             pessoa4.PessoaJuridica = PessoaTipoJuridica2;
 
+            var SaldoDisponivel4 = new Conta();
+            SaldoDisponivel4.Saldo = 1000.00m;
+
+            pessoa4.Conta = SaldoDisponivel4;
+
             lista.Add(pessoa4);
 
             var pessoa5 = new Pessoa();
@@ -84,6 +102,10 @@ namespace TreinamentoApi.Controllers
             var PessoaFisica3 = new PessoaFisica();
             PessoaFisica3.Cpf = "42229266802";
             pessoa5.PessoaFisica = PessoaFisica3;
+
+            var SaldoDisponivel5 = new Conta();
+            SaldoDisponivel5.Saldo = 1000.00m;
+            pessoa5.Conta = SaldoDisponivel5;
 
             lista.Add(pessoa5);
         }
@@ -129,6 +151,7 @@ namespace TreinamentoApi.Controllers
         //}
 
 
+
         //Buscando pessoa pelo cpf ou cnpj
         //[HttpGet ("pessoas/{codigo}")]
         //public ActionResult<Pessoa> GetByCodigo(string codigo)
@@ -141,6 +164,7 @@ namespace TreinamentoApi.Controllers
 
         //    return Ok(pessoa);
         //}
+
 
 
         //Enviando dados de uma pessoa
@@ -218,6 +242,7 @@ namespace TreinamentoApi.Controllers
         //}
 
 
+
         //Devolver lista com nome e id de pessoa
         //[HttpGet]
         //[Route ("pessoas/{termo}")]
@@ -273,16 +298,109 @@ namespace TreinamentoApi.Controllers
 
 
         //Deletando uma pessoa da lista pelo id
-        [HttpDelete]
-        [Route("pessoas/{id:long}")]
-        public ActionResult<List<Pessoa>> DeletePessoa(long id)
-        {
-            var pesquisando = lista.Where(x => x.Id == id).FirstOrDefault();
+        //[HttpDelete]
+        //[Route("pessoas/{id:long}")]
+        //public ActionResult<List<Pessoa>> DeletePessoa(long id)
+        //{
+        //    var pesquisando = lista.Where(x => x.Id == id).FirstOrDefault();
            
-            var indexador = lista.IndexOf(pesquisando);
-            lista.RemoveAt(indexador);
+        //    var indexador = lista.IndexOf(pesquisando);
+        //    lista.RemoveAt(indexador);
 
-            return lista;
+        //    return lista;
+        //}
+
+
+
+        //Deletando uma pessoa pelo email
+        //[HttpDelete]
+        //[Route("pessoas/{email}")]
+        //public ActionResult<List<Pessoa>> DeletarPorEmail (string email)
+        //{
+        //    var pesquisando = lista.Where(x => x.Email == email).FirstOrDefault();
+
+        //    var indexador = lista.IndexOf(pesquisando);
+        //    lista.RemoveAt(indexador);
+
+        //    return lista;
+        //}
+
+
+
+        //Editando dados de uma pessoa da lista
+        //[HttpPut]
+        //[Route("pessoas/{id:long}")]
+        //public ActionResult<List<Pessoa>> EditandoPessoa(long id, Pessoa pessoa)
+        //{
+        //    var pessoaEdicao = lista.Where(x => x.Id == id).FirstOrDefault();
+
+        //    if(pessoaEdicao == null)
+        //    {
+        //        return BadRequest();
+        //    }
+        //    pessoaEdicao.Nome = pessoa.Nome;
+        //    pessoaEdicao.Id = pessoa.Id;
+        //    pessoaEdicao.Email = pessoa.Email;
+        //    pessoaEdicao.Telefone = pessoa.Telefone;
+        //    pessoaEdicao.TipoConta = pessoa.TipoConta;
+        //    if(pessoa.PessoaFisica != null && pessoaEdicao.PessoaFisica != null)
+        //    {
+        //        pessoaEdicao.PessoaFisica.Cpf = pessoa.PessoaFisica.Cpf;
+        //        pessoaEdicao.PessoaFisica.Idade = pessoa.PessoaFisica.Idade;
+        //    }
+        //    if(pessoa.PessoaJuridica != null && pessoaEdicao.PessoaJuridica != null)
+        //    {
+        //        pessoaEdicao.PessoaJuridica.Cnpj = pessoa.PessoaJuridica.Cnpj;
+        //        pessoaEdicao.PessoaJuridica.RazaoSocial = pessoa.PessoaJuridica.RazaoSocial;
+        //    }
+
+        //    return lista;
+        //}
+
+
+
+        //Editando uma pessoa pelo numero do cpf ou cnpj
+        //[HttpPut]
+        //[Route("pessoas/{codigo}")]
+        //public ActionResult<List<Pessoa>> EditandoTermo(string codigo, Pessoa pessoa)
+        //{
+        //    var pessoaEdicao = lista.Where(x => x.PessoaFisica != null && x.PessoaFisica.Cpf == codigo 
+        //                                || x.PessoaJuridica != null && x.PessoaJuridica.Cnpj == codigo)
+        //                                .FirstOrDefault();
+        //    if (pessoaEdicao == null)
+        //        return BadRequest();
+
+        //    pessoaEdicao.Id = pessoa.Id;
+        //    pessoaEdicao.Nome = pessoa.Nome;
+        //    pessoaEdicao.Telefone = pessoa.Telefone;
+        //    pessoaEdicao.Email = pessoa.Email;
+        //    if (pessoa.PessoaFisica != null && pessoaEdicao.PessoaFisica != null)
+        //    {
+        //        pessoaEdicao.PessoaFisica.Cpf = pessoa.PessoaFisica.Cpf;
+        //        pessoaEdicao.PessoaFisica.Idade = pessoa.PessoaFisica.Idade;
+        //    }
+        //    if (pessoa.PessoaJuridica != null && pessoaEdicao.PessoaJuridica != null)
+        //    {
+        //        pessoaEdicao.PessoaJuridica.Cnpj = pessoa.PessoaJuridica.Cnpj;
+        //        pessoaEdicao.PessoaJuridica.RazaoSocial = pessoa.PessoaJuridica.RazaoSocial;
+        //    }
+
+        //    return lista;
+        //}
+
+
+
+        
+        [HttpPost]
+        [Route("pessoas/{id:long}/compra")]
+        public ActionResult<Pessoa> Compra(long id,PostCompra compra)
+        {
+            if (compra.Valor != null && compra.Valor > 0 && compra.Nome != null)
+            {
+
+            }
+            else
+                return BadRequest();
         }
     }
 }
