@@ -10,6 +10,13 @@ namespace EntityCore.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+
+        [Route("~/"), HttpGet]
+        public ActionResult<string> Index()
+        {
+            return "Service is running";
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()

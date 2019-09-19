@@ -21,13 +21,25 @@ namespace EntityCore.Controllers
             this._core = coreService;
         }
 
+        //obter pessoa por id
         [HttpGet("{id:long}")]
-        public async Task<ActionResult<Pessoa>> BuscarPorId(long id)
+        public async Task<ActionResult<PessoaDto>> BuscarPorId(long id)
         {
-            var pessoa = await this._core.PessoaService.Obter(id);
+            var pessoa = await this._core.PessoaService.ObterPorId(id);
 
-            return pessoa;
+            return new PessoaDto(pessoa);
         }
+
+
+        //Obter pessoa por id e classe endereço
+        //[HttpGet("{id:long")]
+        //public async Task<ActionResult<Pessoa>> ObterPorId(long id)
+        //{
+        //    var pessoaPesquisada = await this._core.PessoaService.Obter(id);
+
+        //    return pessoaPesquisada;
+        //}
+
 
         //cadastrar pessoa retornando pessoa cadastrada
         [HttpPost ("")]
@@ -49,6 +61,8 @@ namespace EntityCore.Controllers
 
             return Ok(retorna);
         }
+
+
         //pesquisar pessoa por nome
         [HttpGet("{nome}")]
         public async Task<ActionResult<PessoaDto>> ObterPorNome (string nome)
@@ -57,6 +71,8 @@ namespace EntityCore.Controllers
 
             return Ok(pessoaPesquisada);
         }
+
+
         //editar dados de uma pessoa e retornar pessoa editada
         [HttpPut("{id:long}")]
         public async Task<ActionResult<PessoaDto>> Editar(Pessoa pessoa, long id)
@@ -65,6 +81,15 @@ namespace EntityCore.Controllers
 
             return new PessoaDto(pessoaEditada);
         }
+
+
         //desativar pessoa no banco de dados
+        [HttpDelete("{id:long}")]
+        public async Task<ActionResult> Deletar(long id)
+        {
+            await _core.PessoaService.Delete(id);
+
+            return Ok();
+        }
     }
 }

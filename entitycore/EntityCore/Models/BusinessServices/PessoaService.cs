@@ -23,19 +23,29 @@ namespace EntityCore.Models.BusinessServices
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<Pessoa> Obter(long id)
-        {
-            var r = await _repository.Obter(id);
+      
 
-            return r;
+        //obter pessoa por id
+        public async Task<Pessoa> ObterPorId(long id)
+        {
+            var pessoa = await _repository.Obter(id);
+
+            if(pessoa == null || !pessoa.Status)
+            {
+                throw new Exception("A pessoa esta desativada."); 
+            }
+
+            return pessoa;
         }
 
 
+        //cadastrar pessoa
         public async Task<Pessoa> Cadastrar(Pessoa pessoa)
         {
             var novapessoa = new Pessoa();
             novapessoa.Nome = pessoa.Nome;
             novapessoa.Email = pessoa.Email;
+            novapessoa.Status = true; 
 
             await _repository.Criar(novapessoa);
             await _repository.Persistir();
@@ -43,6 +53,7 @@ namespace EntityCore.Models.BusinessServices
             return novapessoa;
         }
 
+        //editar pessoa
         public async Task<Pessoa> Editar(Pessoa pessoa, long id)
         {
             var pessoaParaEditar = await _repository.Obter(id);
@@ -60,6 +71,7 @@ namespace EntityCore.Models.BusinessServices
         /// 
         /// </summary>
         /// <returns></returns>
+        //Obter lista com todas as pessoas
         public async Task<List<Pessoa>> ObterTodos()
         {
             var r =  _repository.Obter();
@@ -67,25 +79,25 @@ namespace EntityCore.Models.BusinessServices
             return r.ToList();
         }
 
+        //obter pessoa por nome 
         public async Task<Pessoa> ObterPorNome(string nome)
         {
             var pessoanome = _repository.Obter(x=>x.Nome.Contains(nome));
 
             return pessoanome.FirstOrDefault();
         }
-        //public async Task Delete(long id)
-        //{
-        //    var pessoa = await _repository.Obter(id);
 
-        //    if (pessoa != null)
-        //    {
-        //       await _repository.Excluir(pessoa);
-        //    }
-        //    else
-        //    {
-        //        throw new Exception("Pessoa não existe.");
-        //    }
-        //}
+        //deletar pessoa
+        public async Task Delete(long id)
+        {
+            var pessoaParaEditar = await this.ObterPorId(id);
+            
+            pessoaParaEditar.Status = false;
+            
+            await _repository.Editar(pessoaParaEditar, pessoaParaEditar.Id);
+            await _repository.Persistir();
+            
+        }
 
     }
 }

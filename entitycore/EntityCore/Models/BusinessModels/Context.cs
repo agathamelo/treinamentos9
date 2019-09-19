@@ -13,9 +13,10 @@ namespace EntityCore.Models.BusinessModels
         public DbSet<Pessoa> Pessoa { get; set; }
         public DbSet<Endereco> Endereco { get; set; }
 
+      
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            string connectionString = "server=localhost;port=3306;user id=root;password=123456789;database=teste; allowzerodatetime=True; convertzerodatetime=True";
+            string connectionString = "server=localhost;port=3306;user id=root;password=root;database=teste; allowzerodatetime=True; convertzerodatetime=True";
             builder
                 .UseMySQL(connectionString);
         }
@@ -39,6 +40,10 @@ namespace EntityCore.Models.BusinessModels
                     .HasColumnName("Email")
                     .HasMaxLength(100)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Status)
+                   .HasColumnName("Status")
+                   .HasColumnType("tinyint(1)");
             });
 
             builder.Entity<Endereco>(entity =>
@@ -49,6 +54,10 @@ namespace EntityCore.Models.BusinessModels
                 entity.Property(e => e.Id)
                     .HasColumnName("Id")
                     .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.Status)
+                   .HasColumnName("Status")
+                   .HasColumnType("tinyint(1)");
 
                 entity.Property(e => e.Logradouro)
                     .HasColumnName("Logradouro")

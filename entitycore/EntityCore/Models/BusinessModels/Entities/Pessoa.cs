@@ -17,6 +17,7 @@ namespace EntityCore.Models.BusinessModels.Entities
         public long Id { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
+        public bool Status { get; set; }
 
         public virtual IEnumerable<Endereco> Endereco { get; set; }
     }

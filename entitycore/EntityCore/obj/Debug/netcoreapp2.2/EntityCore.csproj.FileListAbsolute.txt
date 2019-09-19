@@ -1,0 +1,14 @@
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\bin\Debug\netcoreapp2.2\EntityCore.deps.json
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\bin\Debug\netcoreapp2.2\EntityCore.runtimeconfig.json
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\bin\Debug\netcoreapp2.2\EntityCore.runtimeconfig.dev.json
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\bin\Debug\netcoreapp2.2\EntityCore.dll
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\bin\Debug\netcoreapp2.2\EntityCore.pdb
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\obj\Debug\netcoreapp2.2\EntityCore.csprojAssemblyReference.cache
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\obj\Debug\netcoreapp2.2\EntityCore.csproj.CoreCompileInputs.cache
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\obj\Debug\netcoreapp2.2\EntityCore.RazorAssemblyInfo.cache
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\obj\Debug\netcoreapp2.2\EntityCore.RazorAssemblyInfo.cs
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\obj\Debug\netcoreapp2.2\EntityCore.AssemblyInfoInputs.cache
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\obj\Debug\netcoreapp2.2\EntityCore.AssemblyInfo.cs
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\obj\Debug\netcoreapp2.2\EntityCore.RazorTargetAssemblyInfo.cache
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\obj\Debug\netcoreapp2.2\EntityCore.dll
+C:\Projetos\Treinamentos\treinamentos9\entitycore\EntityCore\obj\Debug\netcoreapp2.2\EntityCore.pdb
